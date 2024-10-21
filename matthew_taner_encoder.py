@@ -1,3 +1,7 @@
+# Matthew Taner
+# This program takes a password from the user and encodes it
+# The user can also choose to decode the password
+
 def print_menu():
     print()
     print("Menu")
@@ -8,13 +12,17 @@ def print_menu():
     print()
 
 
-# takes a the password string and returns encoded version
+# takes the password string and returns encoded version
 def encoder(original):
     encoded = ""
 
     # iterate through the original string and encode
     for value in original:
-        encoded += str(int(value) + 3)
+        value = int(value) + 3
+        if value >= 10:
+            encoded += str(value)[1]
+        else:
+            encoded += str(value)
 
     return encoded
 
