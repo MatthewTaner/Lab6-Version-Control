@@ -8,6 +8,7 @@ def print_menu():
     print()
 
 
+# takes a the password string and returns encoded version
 def encoder(original):
     encoded = ""
 
