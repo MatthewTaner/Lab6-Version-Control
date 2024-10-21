@@ -18,20 +18,33 @@ def encoder(original):
 
     return encoded
 
+#Function developed by Brandon Young
+def decoder(encoded_password): #Password decoder that takes in 8-digit string and returns with each value shifted down 3
+    decoded_password = ''
+    for element in str(encoded_password):
+        element = int(element) - 3
+        decoded_password += str(element)
+    return decoded_password
 
 if __name__ == "__main__":
 
-
+    password = ''
+    encoded_password = ''
     while True:
         print_menu()
         choice = int(input("Please enter an option: "))
-        password = ""
 
         # Prompt for password and call encode function
         if choice == 1:
             password = input("Please enter your password to encode: ")
-            password = encoder(password)
+            encoded_password = encoder(password)
             print("Your password has been encoded and stored!")
+
+        # Decodes stored user password  using decoder function
+        elif choice == 2:
+            decoder(password)
+            print(f'The encoded password is {encoded_password}, and the original password is {password}\n')
+
         # quit the program
         elif choice == 3:
             break
